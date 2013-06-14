@@ -4,11 +4,19 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <div id="login_bar">
-<% User user = (User) request.getSession().getAttribute("USER"); %>
+<%
+boolean result=false;
+User user = null;
+if(request.getSession().getAttribute("USER")!=null)
+{result=true;
+user = (User) request.getSession().getAttribute("USER");
+}%>
 	<table width="100%" cellpadding="0" cellspacing="0">
 		<tr>
 			<td width="46%" class="smallText">
-				&nbsp;&nbsp;Welcome <b><%= user.getName() %></b>	
+				&nbsp;&nbsp;Welcome <b><% if(result){ %>
+				<%= 	user.getName() %>
+				<%	} %></b>	
 			</td>
 			<td width="54%">
 				<table width="100%" cellspacing="0" cellpadding="0">

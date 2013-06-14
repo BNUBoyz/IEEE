@@ -6,14 +6,14 @@
 		<tr>
 			<td>
 				<ul class="modals">		
-					<li><a href="<%= request.getContextPath() %>/dashboard.jsp">
+					<li><a href="<%= request.getContextPath() %>/dashboard.bnu">
 						<img src="<%= request.getContextPath() %>/images/icons/home.png"
 						width="36" height="36" alt="Home"><span>Home</span></a>
 					</li>
 		
-					<li><a href="<%= request.getContextPath() %>/manageCourses.bnu">
+					<li><a href="<%= request.getContextPath() %>/viewprojects.bnu">
 						<img src="<%= request.getContextPath() %>/images/icons/prospect.png"
-						alt="Manage Courses"> <span>Courses</span> </a>
+						alt="View Projects"> <span>View Projects</span> </a>
 					</li>
 					
 					<li><a href="<%= request.getContextPath() %>/manageCourseAllocations.bnu">

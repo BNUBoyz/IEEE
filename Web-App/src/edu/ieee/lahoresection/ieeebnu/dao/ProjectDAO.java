@@ -12,6 +12,7 @@ import java.util.List;
 
 
 
+import edu.ieee.lahoresection.ieeebnu.bean.Institution;
 import edu.ieee.lahoresection.ieeebnu.bean.Project;
 
 /**
@@ -28,7 +29,8 @@ public class ProjectDAO {
     public List<Project> selectAllProjects() throws SQLException
     {
     	
-    	String sql ="Select * from project";
+    	String sql ="Select * from project p " +
+    			"JOIN institution i ON i.institution_id = p.Institution_institution_id";
     	Statement s = connection.createStatement();
     	ResultSet rs= s.executeQuery(sql);
     	List<Project> projectList = new ArrayList<Project>();
@@ -41,12 +43,22 @@ public class ProjectDAO {
     		project.setInstitutionId(rs.getLong("Institution_institution_id"));
     		project.setDescription(rs.getString("description"));
     		project.setCategory(rs.getString("category"));
+    		 
+    		Institution institution = new Institution();
+    		
+    		institution.setAddress(rs.getString("address"));
+    		institution.setInstitutionId(rs.getLong("institution_id"));
+    		institution.setName(rs.getString("name"));
+    		institution.setPhoneNumber(rs.getString("phone_number"));
+    		
+    		project.setInstitution(institution);
     		
     		projectList.add(project);
     	
     	}
     	
-    	
+    	rs.close();
+    	s.close();
 		return projectList;
     	
     }

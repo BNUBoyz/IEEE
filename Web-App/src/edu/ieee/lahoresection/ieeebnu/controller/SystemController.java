@@ -13,6 +13,7 @@ import edu.ieee.lahoresection.ieeebnu.action.Action;
 import edu.ieee.lahoresection.ieeebnu.action.ActionName;
 import edu.ieee.lahoresection.ieeebnu.action.DashboardAction;
 import edu.ieee.lahoresection.ieeebnu.action.LogoutAction;
+import edu.ieee.lahoresection.ieeebnu.action.ViewProjectsAction;
 
 /**
  * Servlet implementation class SystemController
@@ -45,8 +46,8 @@ public class SystemController extends HttpServlet {
 			if (actionName.equals(ActionName.dashboard.toString())) {
 				action = new DashboardAction();
 
-			} else if(actionName.equals(ActionName.logout.toString())){
-				action = new LogoutAction();
+			} else if(actionName.equals(ActionName.viewprojects.toString())){
+				action = new ViewProjectsAction();
 			} else if(actionName.equals(ActionName.logout.toString())){
 				action = new LogoutAction();
 			}
